@@ -1,0 +1,27 @@
+How would you like to use our encryption today:
+1. generate key matrix
+2. enter matrix and plaintext to find ciphertext
+3. enter matrix and ciphertext to find plaintext
+4. exit
+2
+Please enter the file name in which the matrix is stored, remember only use letters:
+inputMatrix.txt
+please enter the plaintext you wish to encrypt:
+heloworld
+IMSTUQTAKA
+How would you like to use our encryption today:
+1. generate key matrix
+2. enter matrix and plaintext to find ciphertext
+3. enter matrix and ciphertext to find plaintext
+4. exit
+3
+Please enter the file name in which the matrix is stored, remember only use letters:
+inputMatrix.txt
+please enter the ciphertext you wish to decrypt:
+IMSTUQTAKA
+HELOWORLDX
+How would you like to use our encryption today:
+1. generate key matrix
+2. enter matrix and plaintext to find ciphertext
+3. enter matrix and ciphertext to find plaintext
+4. exit

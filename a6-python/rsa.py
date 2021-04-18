@@ -41,7 +41,7 @@ def checkFactors(prime, e):
     return True
 
 #determineE uses product of (p-1)*(q-1) in order to find a value e that is coprime with said value and is less then it. 
-def determineE(smallerPrime):
+def determineE(smallerPrime, p, q):
     e = 2
     if (smallerPrime % 2 != 0):
         return e
@@ -51,25 +51,34 @@ def determineE(smallerPrime):
     else:
         e = 5 
         for i in range (5, smallerPrime, 2):
-            print('before check : ', i)
-            if(smallerPrime % i != 0):
+            if (e == p | e == q):
+                continue
+            elif(smallerPrime % i != 0):
                 return i
 
-# determines the value of D by finding them mod inverse of 
+# determines the value of D by finding them mod inverse of ed mod 
 def determineD(e, modNum):
     temp = modNum + 1
-    while (temp%e != 1):
-        print('temp ', temp)
-        temp+= modNum
-    return temp / e
-
+    if (temp % e == 0):
+        return temp / e
+    else: 
+        found = False
+        while (found == False):
+            #print('temp pre', temp)
+            temp+= modNum
+            if (temp%e == 0):
+                found = True 
+        return temp / e
+    
 def encryption (message, e, n):
     temp = message ** e 
     result = temp % n 
     return result 
 
 def decryption (cipher, d, n):
-     return (cipher**d) % n 
+    temp = cipher ** d
+    result = temp % n
+    return result 
 
 
 def main():
@@ -82,14 +91,16 @@ def main():
     # this is used in modulus 
     product = primeProduct(p,q)
     n2 = determineNTwo(p,q)
-    e = determineE(n2)
+    e = determineE(n2, p, q)
     gcd = primeGCD(p,q)
-    d = determineD(e, product)
-    print("This is the product of p and q:",product, "\n")
-    print('This is the product of p-1 * q-1:', n2)
-    print('this is the prime gcd of p, q', gcd)
-    print('this is the value of e ', e)
-    print('this is the value of d ', d)
+    d = int(determineD(e, n2))
+    # print("This is the product of p and q:",product, "\n")
+    # print('This is the product of p-1 * q-1:', n2)
+    # print('this is the prime gcd of p, q', gcd)
+    # print('this is the value of e ', e)
+    # print('this is the value of d ', d)
+    print("the public key is (",e,",",product,")")
+    print("the private key is (",d,",",product,")")
     print('please enter a message (an int) you want to encrypt')
     message = int(input())
     ciphertext = encryption(message, e, product)
@@ -98,7 +109,6 @@ def main():
     cipher = int(input())
     decrypted = decryption(cipher, d, product)
     print("this is your decrypted message: ", decrypted)
-
 
 if __name__ == "__main__":
     main()

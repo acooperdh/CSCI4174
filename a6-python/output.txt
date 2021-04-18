@@ -1,0 +1,38 @@
+Welcome to Drew's RSA Algorithm Simulator
+
+Please enter a prime number: 7
+Please enter another prime number that is not the same as the first: 11
+the public key is ( 7 , 77 )
+the private key is ( 43 , 77 )
+please enter a message (an int) you want to encrypt
+76
+This is your messaged encrypted:  76
+enter a message (an int) to decrypt:
+76
+this is your decrypted message:  76
+
+Welcome to Drew's RSA Algorithm Simulator
+
+Please enter a prime number: 3
+Please enter another prime number that is not the same as the first: 11
+the public key is ( 3 , 33 )
+the private key is ( 7 , 33 )
+please enter a message (an int) you want to encrypt
+76
+This is your messaged encrypted:  10
+enter a message (an int) to decrypt:
+10
+this is your decrypted message:  10
+
+Welcome to Drew's RSA Algorithm Simulator
+
+Please enter a prime number: 11
+Please enter another prime number that is not the same as the first: 29
+the public key is ( 3 , 319 )
+the private key is ( 187 , 319 )
+please enter a message (an int) you want to encrypt
+99
+This is your messaged encrypted:  220
+enter a message (an int) to decrypt:
+220
+this is your decrypted message:  99
